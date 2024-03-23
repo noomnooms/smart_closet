@@ -42,7 +42,7 @@ In addition to that, we created the smart assistant system, where the second ras
 
 #### 3. First Raspberry Pi `db-manager.py`
 
-![Fig: First Raspberry Pi - `db-manager.py`](./diagrams/raspi-1-dbManager.png)
+![Fig: First Raspberry Pi - `db-manager.py`](./diagrams/raspi-1-dbmanager.png)
 
 #### 4. Second Raspberry Pi `weather.py`
 
