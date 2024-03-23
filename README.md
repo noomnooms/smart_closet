@@ -34,11 +34,19 @@ In addition to that, we created the smart assistant system, where the second ras
 
 #### 1. First Raspberry Pi `main.py`
 
+![Fig: First Raspberry Pi - `main.py`](./diagrams/raspi-1-main.png)
+
 #### 2. Second Raspberry Pi `main.py`
+
+![Fig: Second Raspberry Pi - `main.py`](./diagrams/raspi-2-main.png)
 
 #### 3. First Raspberry Pi `db-manager.py`
 
+![Fig: First Raspberry Pi - `db-manager.py`](./diagrams/raspi-1-dbManager.png)
+
 #### 4. Second Raspberry Pi `weather.py`
+
+![Fig: Second Raspberry Pi - `weather.py`](./diagrams/raspi-2-weather.png)
 
 ### Source Code Explanation
 
@@ -65,6 +73,7 @@ In addition to that, we created the smart assistant system, where the second ras
   This is the python script that is used to send a message through line_notify. It is sourced from this [blog post](https://jkjung-avt.github.io/line-notify/).
 
   Example:
+
   ![Fig: Line-notif](./diagrams/intruder-notif.png)
   ![Fig: Line-notif 2](./diagrams/intruder-notif-text.png)
 
@@ -104,6 +113,7 @@ In addition to that, we created the smart assistant system, where the second ras
   In the code the variable `code` contains a signal sent from the second Raspberry pi device, `0` if nothing happened, `1` if the infrared sensor detects motion, and `2` if the button was pushed. The job of this code is to send the signal received to the `ctrld1` data channel, which is the data channel that controls the first raspberry pi device.
 
   Source code:
+
   ![Fig: MCS-Raspi 1](./diagrams/MCS-raspi1.png)
 
 - Move Servo (data channel id: `move_servo`)
@@ -111,6 +121,7 @@ In addition to that, we created the smart assistant system, where the second ras
   In the code the variable `sense` contains a signal sent from the first Raspberry pi device (camera). `1` if face is authorized, and `0` if face is unknown. The job of this code is to send the signal received to the `servo` data channel, which is the data channel that controls the door.
 
   Source code:
+
   ![Fig: MCS-move servo](./diagrams/MCS-moveservo.png)
 
 - MicroServo Motor (data channel id `servo`)
@@ -129,6 +140,7 @@ In addition to that, we created the smart assistant system, where the second ras
   It is a function data channel to control a data channel called `is cold?`. This function’s main purpose is to determine whether the detected temperature is cold or not. The variable temp is used to catch the temperature value sent by Raspberry Pi after getting information from `OpenWeatherMap API`. And it simply turn `cold = 1` if the temperature is below 18, else it will turn `cold = 0`
 
   Source code:
+
   ![Fig: MCS-temp](./diagrams/MCS-temperature.png)
 
 - is cold? (data channel id: `cold`)
